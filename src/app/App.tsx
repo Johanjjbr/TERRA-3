@@ -1,12 +1,15 @@
 import { RouterProvider } from 'react-router';
 import { router } from './routes';
 import { TabsProvider } from './contexts/TabsContext';
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
   return (
-    <TabsProvider>
-      <RouterProvider router={router} />
-    </TabsProvider>
+    <AuthProvider>
+      <TabsProvider>
+        <RouterProvider router={router} />
+      </TabsProvider>
+    </AuthProvider>
   );
 }
 

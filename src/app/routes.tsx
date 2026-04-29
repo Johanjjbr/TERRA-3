@@ -12,6 +12,8 @@ import { ConfiguracionRed } from "./pages/ConfiguracionRed";
 import { NOCDashboard } from "./pages/NOCDashboard";
 import { PlaceholderPage } from "./pages/PlaceholderPage";
 import { TablesDemo } from "./pages/TablesDemo";
+import { LoginPage } from "./pages/LoginPage";
+import { ProtectedRoute } from "./contexts/ProtectedRoute";
 import { 
   Percent, 
   Building2, 
@@ -30,128 +32,240 @@ import {
 
 export const router = createBrowserRouter([
   {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
     path: "/",
     Component: Layout,
     children: [
       {
         index: true,
-        element: <MainWorkspace />,
+        element: (
+          <ProtectedRoute>
+            <MainWorkspace />
+          </ProtectedRoute>
+        ),
       },
       // Demo de Tablas
       {
         path: "tables-demo",
-        element: <TablesDemo />,
+        element: (
+          <ProtectedRoute>
+            <TablesDemo />
+          </ProtectedRoute>
+        ),
       },
       // Gestión de red
       {
         path: "gestion-red",
-        element: <GestionRed />,
+        element: (
+          <ProtectedRoute>
+            <GestionRed />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "gestion-red/:section",
-        element: <GestionRed />,
+        element: (
+          <ProtectedRoute>
+            <GestionRed />
+          </ProtectedRoute>
+        ),
       },
       // Finanzas
       {
         path: "finanzas",
-        element: <Finanzas />,
+        element: (
+          <ProtectedRoute>
+            <Finanzas />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "finanzas/:section",
-        element: <Finanzas />,
+        element: (
+          <ProtectedRoute>
+            <Finanzas />
+          </ProtectedRoute>
+        ),
       },
       // Promociones
       {
         path: "promociones",
-        element: <PlaceholderPage title="Promociones" icon={Percent} />,
+        element: (
+          <ProtectedRoute>
+            <PlaceholderPage title="Promociones" icon={Percent} />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "promociones/:section",
-        element: <PlaceholderPage title="Promociones" icon={Percent} />,
+        element: (
+          <ProtectedRoute>
+            <PlaceholderPage title="Promociones" icon={Percent} />
+          </ProtectedRoute>
+        ),
       },
       // Pagos
       {
         path: "pagos",
-        element: <PlaceholderPage title="Pagos" icon={Building2} />,
+        element: (
+          <ProtectedRoute>
+            <PlaceholderPage title="Pagos" icon={Building2} />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "pagos/:section",
-        element: <PlaceholderPage title="Pagos" icon={Building2} />,
+        element: (
+          <ProtectedRoute>
+            <PlaceholderPage title="Pagos" icon={Building2} />
+          </ProtectedRoute>
+        ),
       },
       // Ventas
       {
         path: "ventas",
-        element: <Ventas />,
+        element: (
+          <ProtectedRoute>
+            <Ventas />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "ventas/:section",
-        element: <Ventas />,
+        element: (
+          <ProtectedRoute>
+            <Ventas />
+          </ProtectedRoute>
+        ),
       },
       // Otros módulos sin sub-items
       {
         path: "recargos",
-        element: <PlaceholderPage title="Recargos" icon={ShoppingCart} />,
+        element: (
+          <ProtectedRoute>
+            <PlaceholderPage title="Recargos" icon={ShoppingCart} />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "compras",
-        element: <PlaceholderPage title="Compras" icon={ShoppingBag} />,
+        element: (
+          <ProtectedRoute>
+            <PlaceholderPage title="Compras" icon={ShoppingBag} />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "inventario",
-        element: <Inventario />,
+        element: (
+          <ProtectedRoute>
+            <Inventario />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "inventario/:section",
-        element: <Inventario />,
+        element: (
+          <ProtectedRoute>
+            <Inventario />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "fichas-hotspot",
-        element: <PlaceholderPage title="Fichas Hotspot" icon={Wifi} />,
+        element: (
+          <ProtectedRoute>
+            <PlaceholderPage title="Fichas Hotspot" icon={Wifi} />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "comunicaciones",
-        element: <PlaceholderPage title="Comunicaciones" icon={MessageSquare} />,
+        element: (
+          <ProtectedRoute>
+            <PlaceholderPage title="Comunicaciones" icon={MessageSquare} />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "tickets",
-        element: <Tickets />,
+        element: (
+          <ProtectedRoute>
+            <Tickets />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "tickets/:section",
-        element: <Tickets />,
+        element: (
+          <ProtectedRoute>
+            <Tickets />
+          </ProtectedRoute>
+        ),
       },
       // Usuarios
       {
         path: "usuarios",
-        element: <Usuarios />,
+        element: (
+          <ProtectedRoute>
+            <Usuarios />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "usuarios/:section",
-        element: <Usuarios />,
+        element: (
+          <ProtectedRoute>
+            <Usuarios />
+          </ProtectedRoute>
+        ),
       },
       // Configuración
       {
         path: "configuracion",
-        element: <Configuracion />,
+        element: (
+          <ProtectedRoute>
+            <Configuracion />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "configuracion/:section",
-        element: <Configuracion />,
+        element: (
+          <ProtectedRoute>
+            <Configuracion />
+          </ProtectedRoute>
+        ),
       },
       // Configuración de red
       {
         path: "configuracion-red",
-        element: <ConfiguracionRed />,
+        element: (
+          <ProtectedRoute>
+            <ConfiguracionRed />
+          </ProtectedRoute>
+        ),
       },
       // NOC Dashboard
       {
         path: "noc",
-        element: <NOCDashboard />,
+        element: (
+          <ProtectedRoute>
+            <NOCDashboard />
+          </ProtectedRoute>
+        ),
       },
       // ISPCube
       {
         path: "ispcube",
-        element: <PlaceholderPage title="ISPCube" icon={Server} />,
+        element: (
+          <ProtectedRoute>
+            <PlaceholderPage title="ISPCube" icon={Server} />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
